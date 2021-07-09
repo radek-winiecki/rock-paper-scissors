@@ -42,7 +42,11 @@ const game = () => {
         // Check for rock
         if (playerChoice === 'rock') {
             if (computerChoice === 'scissors') {
-                winner.textContent = "player wins"
+                winner.textContent = "player wins";
+                return;
+            } else {
+                winner.textContent = "computer wins";
+                return;
             }
         }
     }
