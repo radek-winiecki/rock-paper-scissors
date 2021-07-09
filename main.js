@@ -2,8 +2,7 @@ const game = () => {
     let pScore = 0;
     let cScore = 0;
 
-    //Start the game
-
+    // Start the game
     const startGame = () => {
         const playBtn = document.querySelector('.intro button');
         const introScreen = document.querySelector('.intro');
@@ -14,13 +13,13 @@ const game = () => {
             match.classList.add("fadeIn");
         });
     };
-    //Play match
+    // Play match
     const playMatch = () => {
         const options = document.querySelectorAll('.options button');
         const playerHand = document.querySelector('.player-hand');
         const computerHand = document.querySelector('.computer-hand');
 
-        //Computer options
+        // Computer options
         const computerOptions = ['rock', 'paper', 'scissors'];
 
         options.forEach((options) => {
@@ -31,9 +30,17 @@ const game = () => {
             })
         })
     }
-    //Is call the inner function
+
+    const compareHands = (playerChoice, computerChoice) => {
+        // Update text
+        const  winner = document.querySelector(".winner");
+        // Checking for a draw
+        if (playerChoice === computerChoice) {
+            winner.textContent = "It is a draw";
+            return;
+        }
+    }
     startGame();
     playMatch();
 };
-//Start the game function
 game();
