@@ -23,10 +23,17 @@ const game = () => {
         //Computer options
         const computerOptions = ['rock', 'paper', 'scissors'];
 
-        const computerNumber = Math.random() * 3;
+        options.forEach((options) => {
+            options.addEventListener('click', function () {
+                //Computer Choice
+                const computerNumber = Math.floor(Math.random() * 3);
+                const computerChoice = computerOptions[computerNumber];
+            })
+        })
     }
     //Is call the inner function
     startGame();
+    playMatch();
 };
 //Start the game function
 game();
