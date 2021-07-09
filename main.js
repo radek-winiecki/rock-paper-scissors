@@ -35,21 +35,24 @@ const game = () => {
                 const computerNumber = Math.floor(Math.random() * 3);
                 const computerChoice = computerOptions[computerNumber];
 
-                compareHands(this.textContent, computerChoice);
+                setTimeout(() => {
+                    compareHands(this.textContent, computerChoice);
 
-                // Update images
-                playerHand.src = `assets/${this.textContent}.png`;
-                computerHand.src = `assets/${computerChoice}.png`;
+                    // Update images
+                    playerHand.src = `assets/${this.textContent}.png`;
+                    computerHand.src = `assets/${computerChoice}.png`;
+                }, 2000);
 
+                // Animations
                 playerHand.style.animation = "shakePlayer 2s ease";
                 computerHand.style.animation = "shakeComputer 2s ease";
-            })
-        })
-    }
+            });
+        });
+    };
 
     const updateScore = () => {
-        const  playerScore = document.querySelector('.player-score p');
-        const  computerScore = document.querySelector('.computer-score p');
+        const playerScore = document.querySelector('.player-score p');
+        const computerScore = document.querySelector('.computer-score p');
 
         playerScore.textContent = pScore;
         computerScore.textContent = cScore;
@@ -57,7 +60,7 @@ const game = () => {
 
     const compareHands = (playerChoice, computerChoice) => {
         // Update text
-        const  winner = document.querySelector(".winner");
+        const winner = document.querySelector(".winner");
         // Checking for a draw
         if (playerChoice === computerChoice) {
             winner.textContent = "It's a draw";
