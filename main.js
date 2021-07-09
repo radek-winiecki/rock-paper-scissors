@@ -39,6 +39,12 @@ const game = () => {
             winner.textContent = "It is a draw";
             return;
         }
+        // Check for rock
+        if (playerChoice === 'rock') {
+            if (computerChoice === 'scissors') {
+                winner.textContent = "player wins"
+            }
+        }
     }
     startGame();
     playMatch();
