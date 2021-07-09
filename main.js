@@ -49,6 +49,26 @@ const game = () => {
                 return;
             }
         }
+        // Chech for paper
+        if (playerChoice === 'paper') {
+            if (computerChoice === 'scissors') {
+                winner.textContent = "computer wins";
+                return;
+            } else {
+                winner.textContent = "player wins";
+                return;
+            }
+        }
+        // Check for scissors
+        if (playerChoice === 'scissors') {
+            if (computerChoice === 'rock') {
+                winner.textContent = "computer wins";
+                return;
+            } else {
+                winner.textContent = "player wins";
+                return;
+            }
+        }
     }
     startGame();
     playMatch();
