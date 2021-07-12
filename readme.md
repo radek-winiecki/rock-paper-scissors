@@ -1,6 +1,7 @@
 #rock-paper-and-scissors-game
 
-#Let's play
+1. Let's play
 ![screenshot](screenshots/ss1.png)
-#What's up, Computer? ;p
+   
+2. What's up, Computer? ;p
 ![screenshot](screenshots/ss2.png)

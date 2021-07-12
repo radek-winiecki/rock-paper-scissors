@@ -20,30 +20,29 @@ const game = () => {
         const computerHand = document.querySelector('.computer-hand');
         const hands = document.querySelectorAll('.hands img');
 
-        hands.forEach((hand) => {
-            hand.addEventListener('animationed', function () {
-                this.style.animation = '';
-            })
-        })
+        hands.forEach(hand => {
+            hand.addEventListener("animationend", function() {
+                this.style.animation = "";
+            });
+        });
+        //Computer Options
+        const computerOptions = ["rock", "paper", "scissors"];
 
-        // Computer options
-        const computerOptions = ['rock', 'paper', 'scissors'];
-
-        options.forEach((options) => {
-            options.addEventListener('click', function () {
+        options.forEach(option => {
+            option.addEventListener("click", function() {
                 //Computer Choice
                 const computerNumber = Math.floor(Math.random() * 3);
                 const computerChoice = computerOptions[computerNumber];
 
                 setTimeout(() => {
+                    //Here is where we call compare hands
                     compareHands(this.textContent, computerChoice);
 
                     // Update images
                     playerHand.src = `assets/${this.textContent}.png`;
                     computerHand.src = `assets/${computerChoice}.png`;
                 }, 2000);
-
-                // Animations
+                //Animation
                 playerHand.style.animation = "shakePlayer 2s ease";
                 computerHand.style.animation = "shakeComputer 2s ease";
             });
@@ -56,7 +55,7 @@ const game = () => {
 
         playerScore.textContent = pScore;
         computerScore.textContent = cScore;
-    }
+    };
 
     const compareHands = (playerChoice, computerChoice) => {
         // Update text
@@ -69,12 +68,12 @@ const game = () => {
         // Check for rock
         if (playerChoice === 'rock') {
             if (computerChoice === 'scissors') {
-                winner.textContent = "player wins";
+                winner.textContent = "player win";
                 pScore++;
                 updateScore();
                 return;
             } else {
-                winner.textContent = "computer wins";
+                winner.textContent = "computer win";
                 cScore++;
                 updateScore();
                 return;
@@ -83,12 +82,12 @@ const game = () => {
         // Chech for paper
         if (playerChoice === 'paper') {
             if (computerChoice === 'scissors') {
-                winner.textContent = "computer wins";
+                winner.textContent = "computer win";
                 cScore++;
                 updateScore();
                 return;
             } else {
-                winner.textContent = "player wins";
+                winner.textContent = "player win";
                 pScore++;
                 updateScore();
                 return;
@@ -97,19 +96,21 @@ const game = () => {
         // Check for scissors
         if (playerChoice === 'scissors') {
             if (computerChoice === 'rock') {
-                winner.textContent = "computer wins";
+                winner.textContent = "computer win";
                 cScore++;
                 updateScore();
-                return;
             } else {
-                winner.textContent = "player wins";
+                winner.textContent = "player win";
                 pScore++;
                 updateScore();
-                return;
             }
         }
-    }
+    };
+
+    //Is call all the inner function
     startGame();
     playMatch();
 };
+
+//start the game function
 game();
